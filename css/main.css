@@ -1,35 +1,220 @@
- {
+  *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif; /* para que se cargue tipografia nativa del sistema en dispositivos apple :) */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(241, 249, 249);
-    color:  rgb(51,51,51);
-    max-width: 1200px;
-    margin: 30px auto 40px auto;
-    padding: 0 20px;
+    color:  rgb(30, 41, 59);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh; /* altura de la ventana gráfica */
 }
 
-footer {
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    text-align: center; 
+/* para el header*/
+.cabecera-principal {
+    width: 100%;
+    background-color: rgb(15, 23, 42);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
 }
+
+.cabecera-principal h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.35rem;
+}
+
+.cabecera-principal p {
+    color: rgb(148, 163, 184);
+    font-size: 0.95rem;
+}
+
+/* main- contenido principal */
+.contenedor {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 1rem;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: rgb(15, 23, 42);
+    margin-bottom: 1rem;
+}
+
+/* formulario*/
+.panel-formulario {
+    background-color: rgb(255, 255, 255);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgb(226, 232, 240);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 0.75rem;
+}
+
+.formulario input { /* aplicando las reglas input*/
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgb(203, 213, 225);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.formulario input:focus { /* sirve de guia visual y ayuda con la accesibilidad al utilizar la tecla Tab en lugar del ratón */
+    border-color: rgb(37, 99, 235);
+}
+
+/* catálogo de libros*/
+.grid-libros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.tarjeta-libro {
+    background-color: rgb(255, 255, 255);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgb(226, 232, 240);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarjeta-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.isbn {
+    font-size: 0.85rem;
+    color: rgb(100, 116, 139);
+}
+
+.estado {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.estado.disponible {
+    background-color: rgb(220, 252, 231);
+    color: rgb(22, 101, 52);
+}
+
+.estado.prestado {
+    background-color: rgb(254, 226, 226);
+    color: rgb(153, 27, 27);
+}
+
+.tarjeta-libro h3 {
+    font-size: 1.2rem;
+    color: rgb(15, 23, 42);
+    margin-bottom: 0.4rem;
+}
+
+.autor {
+    font-size: 0.9rem;
+    color: rgb(71, 85, 105);
+    margin-bottom: 1.5rem;
+}
+
+/* botones */
+.controles {
+    display: flex;
+    gap: 0.65rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-primario {
+    background-color: rgb(37, 99, 235);
+    color: rgb(255, 255, 255);
+}
+
+.btn-primario:hover:not(:disabled) {
+    background-color: rgb(29, 78, 216);
+}
+
+.btn-secundario {
+    background-color: rgb(71, 85, 105);
+    color: rgb(255, 255, 255);
+}
+
+.btn-secundario:hover:not(:disabled) {
+    background-color: rgb(51, 65, 85);
+}
+
+/* pie de página */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+    background-color: rgb(226, 232, 240);
+    color: rgb(71, 85, 105);
+    font-size: 0.85rem;
+}
+
 
 /*adaptación para pantallas medias y móviles*/
  
 @media (max-width:768px) {
-    body{
-    box-sizing: border-box;
-    background-color: lightblue;
-    font-size: 16px;
-    margin-top: 20px; /*ajuste de margen superior para los móviles */
-    padding: 0 15px;
+  .cabecera-principal {
+        padding: 1.5rem 1rem;
+        margin-bottom: 1.5rem;
     }
+
+    .cabecera-principal h1 {
+        font-size: 1.5rem;
+    }
+
+    /* En móvil los campos del formulario se apilan en una sola columna: */
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .controles {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 0.8rem 1rem;
+    }  
 }

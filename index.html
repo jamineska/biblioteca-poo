@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es_ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestión de Biblioteca</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
+    <!--aqui va la cabecera-->
+    <header class="cabecera-principal">
+        <h1 id="nombre-biblioteca">Biblioteca</h1>
+        <p>Sistema de Gestión de Colección</p>
+    </header>
 
-
-
-
-
-
-    
+    <!--aqui va el contenido principal-->
+    <main class="contenedor">
+      <!--abrir sección formulario-->
+        <section class="panel-formulario">
+            <h2>Añadir Nuevo Libro</h2>
+            <form id="form-libro" class="formulario">
+                <input type="text" id="input-titulo" placeholder="Título del libro (ej. 1984)" required>
+                <input type="text" id="input-autor" placeholder="Autor (ej. George Orwell)" required>
+                <input type="text" id="input-isbn" placeholder="ISBN único (ej. 12345)" required>
+                <button type="submit" class="btn btn-primario">Agregar Libro</button>
+            </form>
+        </section>  
+     <!--abrir sección colección-->
+        <section class="panel-coleccion">
+            <h2>Catálogo de Libros</h2>
+            <div id="lista-libros" class="grid-libros">
+                <!-- Aquí JavaScript pintará cada libro -->
+            </div>
+        </section>
+    </main>
+    <!--pie de página-->
    <footer>
-    <p>&copy; 2026 Registrate en el club. Todos los derechos reservados.</p>
-    <p><a href="mailto:contacto@mipaginaweb.com">contacto@mipaginaweb.com</a></p>
+        <p>&copy; 2026 Registrate en el club. Todos los derechos reservados.</p>
+        <p><a href="mailto:contacto@mipaginaweb.com">contacto@mipaginaweb.com</a></p>
     </footer> 
+    <script src="js/libro.js"></script>
    <script src="js/main.js"></script>
+   
 </body>
 </html>
