@@ -9,8 +9,8 @@ Esta clase debe tener:
 
     Métodos:
         agregarLibro(libro): añade un libro a la colección
-        buscarPorISBN(isbn): busca un libro específico en la colección
-        prestarLibro(isbn): presta un libro según su ISBN
+        buscarPorISBN(isbn): busca un libro específico en la colección(International Standard Book Number)
+        prestarLibro(isbn): presta un libro según su ISBN 
         devolverLibro(isbn): devuelve un libro según su ISBN
         mostrarLibros(): muestra todos los libros con su estado
 
@@ -37,7 +37,7 @@ Usar encapsulamiento por convención (con _propiedad)
 No se permite modificar directamente el estado de un libro fuera de su clase
 Por ejemplo: libro._prestado = true; → ❌ No permitido. */
 
-//cogemos elementos html
+//1 .cogemos elementos html
 const nombreBiblio = document.querySelector("#nombre-biblioteca");
 const formLibro = document.querySelector("#form-libro");
 const inputTitulo = document.querySelector("#input-titulo");
@@ -45,7 +45,7 @@ const inputAutor = document.querySelector("#input-autor");
 const inputIsbn = document.querySelector("#input-isbn");
 const contenedorLibros = document.querySelector("#lista-libros");
 
-//definimos la clase biblioteca (POO)
+//2. definimos la clase biblioteca (POO)
 class Biblioteca {
     constructor(nombre) {
         this.nombre = nombre;
@@ -84,7 +84,7 @@ class Biblioteca {
     }
 }
 
-//datos iniciales, seguimos el ejemplo del enunciado
+//3. datos iniciales, seguimos el ejemplo del enunciado
 const biblio = new Biblioteca("Biblioteca Central");
 const libro1 = new Libro("1984", "George Orwell", "12345");
 const libro2 = new Libro("Cien años de soledad", "Gabriel García Márquez", "11111");
@@ -94,7 +94,7 @@ biblio.agregarLibro(libro2);
 biblio.prestarLibro("12345");
 biblio.mostrarLibros(); // Muestra "1984" como "Prestado" en consola
 
-//crear evento del formulario para añadir libros
+//4. crear evento del formulario para añadir libros
 formLibro.addEventListener("submit", function (evento) {
     evento.preventDefault(); // evita que la página se recargue
 
@@ -115,7 +115,7 @@ formLibro.addEventListener("submit", function (evento) {
     pintarCatalogo();  // actualizamos la pantalla
 });
 
-// función para pintar libros
+//5. función para pintar libros
 function pintarCatalogo() {
     nombreBiblio.textContent = biblio.nombre;
     contenedorLibros.innerHTML = ""; // Limpiamos el contenedor antes de volver a pintar
@@ -194,5 +194,5 @@ function pintarCatalogo() {
     });
 }
 
-//ejecución inicial
+//6. ejecución inicial
 pintarCatalogo();
